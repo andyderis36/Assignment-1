@@ -31,6 +31,9 @@ public class App {
 
                 // Now you can use the 'menu' variable as needed
                 switch (menu) {
+                    case 0:
+                        System.out.println("Exiting the program. Goodbye!");
+                        break;
                     case 1:
                         System.out.println("======");
                         System.out.println("Menu 1");
@@ -48,9 +51,6 @@ public class App {
                         System.out.println("Menu 3");
                         System.out.println("======");
                         LoopSum.mainLoop();
-                        break;
-                    case 0:
-                        System.out.println("Exiting the program. Goodbye!");
                         break;
                     default:
                         System.out.println("Invalid menu. Please try again.");
@@ -71,10 +71,10 @@ public class App {
         Scanner menu = new Scanner(System.in);
 
         System.out.println("Menu:");
+        System.out.println("0. Exit");
         System.out.println("1. Triangle Determiner");
         System.out.println("2. Num to Words");
         System.out.println("3. Loop Sum Average");
-        System.out.println("0. Exit");
 
         System.out.println("Enter your menu:");
 
