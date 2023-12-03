@@ -13,14 +13,10 @@ public class Number {
         System.out.println(" ");
         System.out.println("**********************************************");
         System.out.println("*     This is Number to Words Converter!     *");
-        System.out.println("**********************************************");
-        System.out.println(" ");
-
-        Scanner scanner = new Scanner(System.in);
+        System.out.println("********************************************** \n");
 
         // Prompt the user to input a double value
-        System.out.println("Enter a double value:");
-        double inputValue = scanner.nextDouble();
+        double inputValue = getValidInput("Enter a double value: ");
 
         // Separate the whole number and decimal parts
         long wholeNumber = (long) inputValue;
@@ -39,8 +35,25 @@ public class Number {
         System.out.println(words);
         App.switchMenu();
 
-        // Close the scanner
-        scanner.close();
+    }
+
+    private static double getValidInput(String prompt) {
+        Scanner scanner = new Scanner(System.in);
+        double result;
+
+        while (true) {
+            System.out.print(prompt);
+
+            if (scanner.hasNextDouble()) {
+                result = scanner.nextDouble();
+                break; // Break the loop if a valid double is entered
+            } else {
+                System.out.println("Invalid input. Please enter a double number!!!. \n");
+                scanner.next(); // Consume the invalid input
+            }
+        }
+        return result;
+
     }
     
     private static String convertToWords(long number) {
