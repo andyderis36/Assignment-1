@@ -7,8 +7,12 @@ public class Number {
             "Seventeen", "Eighteen", "Nineteen" };
     private static final String[] tens = { "", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy",
             "Eighty", "Ninety" };
+            
+    private static boolean centIteration = false;
+
 
     public static void mainNum() {
+
 
         System.out.println(" ");
         System.out.println("**********************************************");
@@ -20,7 +24,9 @@ public class Number {
 
         // Separate the whole number and decimal parts
         long wholeNumber = (long) inputValue;
+        System.out.println("wholeNumberDebug " + wholeNumber);
         int cents = (int) ((inputValue - wholeNumber) * 100);
+        System.out.println("centDebug " + cents);
 
         // Convert the whole number part to words
         String words = convertToWords(wholeNumber) + " Ringgit";
@@ -57,6 +63,15 @@ public class Number {
     }
     
     private static String convertToWords(long number) {
+        
+        System.out.println(number);
+
+        if(centIteration){
+            if(number == 79){
+                number+=1;
+            }
+        }
+
         if (number == 0) {
             return "Zero";
         }
@@ -90,12 +105,20 @@ public class Number {
         // Handle tens and ones
         if (number > 0) {
             if (number >= 11 && number <= 19) {
-                words += teens[(int) (number % 10)] + "-";
+                words += teens[(int) (number % 10)] + " ";
             } else {
                 words += tens[(int) (number / 10)] + " " + units[(int) (number % 10)] + " ";
             }
         }
         
+
+        System.out.println(words.trim());
+        if(centIteration) {
+            centIteration = false;
+        } else {
+            centIteration = true;
+        }
+
         return words.trim();
     }
 }

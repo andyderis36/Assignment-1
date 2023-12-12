@@ -13,7 +13,6 @@ public class App {
 
         // Show menu confirmation & option
         switchMenu();
-
     }
 
     public static void switchMenu() {
@@ -34,7 +33,6 @@ public class App {
                     case 0:
                         System.out.println("Exiting the program. Goodbye! \n");
                         break;
-
                     case 1:
                         System.out.println("======");
                         System.out.println("Menu 1");
@@ -56,7 +54,6 @@ public class App {
                     default:
                         System.out.println("Menu not available. Please choose menu from given list! \n");
                         switchMenu();
-                        
                 }
                 break;
             } while (menu != 0);
@@ -67,7 +64,6 @@ public class App {
         } else {
             System.out.println("Invalid input! \n");
             switchMenu();
-
         }
 
         // Close the scanner
@@ -89,14 +85,11 @@ public class App {
         System.out.print("Enter your menu: ");
 
         Scanner menu = new Scanner(System.in);
-
-        // Validate that the user entered an integer
+        // Validate that the user entered correct input
         while (!menu.hasNextInt()) {
-            System.out.println("Invalid input. Please enter a number! \n");
+            System.out.println("Invalid input please enter an integer! \n");
             menu.next();
         }
-
         return menu.nextInt();
-
     }
 }

@@ -23,7 +23,7 @@ public class LoopSum {
 
             // Check if the entered value is non-positive
             if (input <= 0) {
-                System.out.println("Error: Please enter a positive integer! \n");
+                System.out.println("Error! Please enter a positive integer! \n");
                 continue; // Prompt again
             }
 
